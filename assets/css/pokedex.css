@@ -22,6 +22,10 @@ ol.pokemons{
     padding: 1rem;
 }
 
+.pokemonCont{
+    background-color: gray;
+}
+
 .saur{
     background-color: #14A06F;
 }

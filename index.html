@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="/assets/css/pokedex.css">
     
     <!-- JS Próprio -->
-    <script src="/assets/js/main.js" defer></script>
+    <script type="module" src="/assets/js/pokeApi.js" defer></script>
+    <script type="module" src="/assets/js/main.js" defer></script>
 
 </head>
 <body>
@@ -26,7 +27,19 @@
     <section class="content">
         <h1>Pokedex</h1>
 
-        <ol class="pokemons">
+        <ol id="pokemonList" class="pokemons">
+            <li class="pokemonCont">
+                <span class="number">#001</span>
+                <span class="name"> Bulbasaur</span>
+                <div class="detail">
+                    <ol class="types">
+                        <li class="type">Grass</li>
+                        <li class="type">Poison</li>
+                    </ol>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg">
+                </div>
+            </li>
+
             <li class="saur">
                 <span class="number">#001</span>
                 <span class="name"> Bulbasaur</span>
