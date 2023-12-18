@@ -5,6 +5,7 @@ export class PokeAPI{
     convertPokeApiDetailToPokemon(pokeDetail){
         
         const pokemon = new PokemonMain();
+
         pokemon.order = pokeDetail.order;
         pokemon.name = pokeDetail.name;
 
@@ -18,22 +19,23 @@ export class PokeAPI{
         return pokemon;
     }
 
-    getPokemonDetail(pokemon) {
+    getPokemonDetail = (pokemon) => {
         return fetch(pokemon.url)
-        .then((response) => response.json())
-        .then(this.convertPokeApiDetailToPokemon)
+            .then((response) => response.json())
+            .then(this.convertPokeApiDetailToPokemon)
     }
 
-    getPokemons(offset = 0, limit = 10){
-        const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
-        
+    getPokemons = (offset, limit) => {
+        const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+    
         return fetch(url)
-        .then((response) => response.json())
-        .then((jsonBody) => jsonBody.results)
-        .then((pokemons) => pokemons.map(this.getPokemonDetail))
-        .then((detailRequest) => Promise.all(detailRequest))
-        .then((pokemonsDetails) => pokemonsDetails)
-        .catch((error) => console.log(error))
+            .then((response) => response.json())
+            .then((jsonBody) => jsonBody.results)
+            .then((pokemons) => pokemons.map(this.getPokemonDetail))
+            .then((detailRequests) => Promise.all(detailRequests))
+            .then((pokemonsDetails) => pokemonsDetails)
     }
+
+    
 
 }
