@@ -6,7 +6,7 @@ export class PokeAPI{
         
         const pokemon = new PokemonMain();
 
-        pokemon.order = pokeDetail.order;
+        pokemon.order = pokeDetail.id;
         pokemon.name = pokeDetail.name;
 
         const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name);
